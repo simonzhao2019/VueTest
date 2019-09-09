@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>02_模板语法</title>
-</head>
-<body>
-<!--
+  <head>
+    <meta charset="UTF-8" />
+    <title>02_模板语法</title>
+  </head>
+  <body>
+    <!--
 1. 模板的理解:
   动态的html页面
   包含了一些JS语法代码
@@ -29,14 +29,28 @@
     @click='xxx'
 -->
 
-<div id="app">
-  <h2>1. 双大括号表达式</h2>
+    <div id="app">
+      <h2 v-once>{{ title }}</h2>
+      <p v-if="seen">现在你看到我了</p>
+      <h2><a href="link">百度跳转</a></h2>
 
-  <h2>2. 指令一: 强制数据绑定</h2>
-
-  <h2>3. 指令二: 绑定事件监听</h2>
-
-</div>
-
-</body>
+      <h2 v-on:click="jump">跳转</h2>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        title: "双大括号表达式",
+        content:"这是一个秋天",
+        seen:"true",
+  
+        jump:function(){
+          location.href="http://www.baidu.com"
+        }
+      }
+    });
+    console.log(vm)
+  </script>
 </html>
