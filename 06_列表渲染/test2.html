@@ -9,9 +9,48 @@
 1. 列表过滤
 2. 列表排序
 -->
+<div id="demo">
+  <input type="text" v-model="searchName">
+  <ul>
+    <li v-for="(p, index) in filterPersons" :key="p.id">
+      {{p.id}}--{{p.name}}--{{p.age}}
+    </li>
+  </ul>
+  <button @click="sortType = 1">年龄升序</button>
+  <button @click="sortType = 2">年龄降序</button>
+  <button @click="sortType = 0">原本顺序</button>
+</div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+    let time = Date.now()
+new Vue({
+  el:"#demo",
+  data:{
+    persons:[
+      { id: time, name: 'Tom', age: 14 },
+      { id: time + 1, name: 'Jack', age: 12 },
+      { id: time + 2, name: 'Bob', age: 13 },
+      { id: time + 3, name: 'Jerry', age: 15 },
+      { id: time + 4, name: 'Mack', age: 11 },
+    ],
+    searchName:""
+  },
+  computed:{
+    filterPersons (){
+      const { persons, searchName}=this
+      console.log(persons)
+      const arr=persons.filter(person=>person.name.indexOf(searchName)!=-1)
+      arr.sort((p1,p2)=>{
+        return p1.age-p2.age //14-12>0。这种方式是升序排列
+      }
+      
+      )
+
+      return arr
+    }
+  }
+})
 
 </script>
 </body>

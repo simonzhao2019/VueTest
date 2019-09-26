@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>06_列表渲染</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>06_列表渲染</title>
+  </head>
 
-<!--
+  <body>
+    <!--
 1. 列表显示
   数组: v-for / index
   对象: v-for / key
@@ -15,16 +15,49 @@
   替换item
 -->
 
-<div id="demo">
-  <h2>测试: v-for 遍历数组</h2>
+    <div id="demo">
+      <h2>测试: v-for 遍历数组</h2>
+      <ul>
+        <li v-for="(p,index) in persons" v-bind:key="p.id">
+          {{p.name}}--{{p.age}}
+        </li>
+      </ul>
 
-  <h2>测试: v-for 遍历对象</h2>
+      <h2>测试: v-for 遍历对象</h2>
+    </div>
 
-</div>
-
-<script type="text/javascript" src="../js/vue.js"></script>
-<script type="text/javascript">
-
-</script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+      const time = Date.now()
+      new Vue({
+        el: '#demo',
+        data: {
+          persons: [{
+            id: time,
+            name: 'Tom',
+            age: 14
+          },
+          {
+            id: time + 1,
+            name: 'Jack',
+            age: 12
+          },
+          {
+            id: time + 2,
+            name: 'Bob',
+            age: 13
+          },
+          {
+            id: time + 3,
+            name: 'Jerry',
+            age: 15
+          },
+          ],
+          xxx: {
+            yyy: 2
+          }
+        }
+      })
+    </script>
+  </body>
 </html>

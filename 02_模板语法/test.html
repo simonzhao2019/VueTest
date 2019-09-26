@@ -30,7 +30,7 @@
 -->
 
     <div id="app">
-      <h2 v-once>{{ title }}</h2>
+      <h2 >v-html:<span>大家好，我叫赵廷会</span></h2>
       <p v-if="seen">现在你看到我了</p>
       <h2><a href="link">百度跳转</a></h2>
 
@@ -42,7 +42,7 @@
     const vm = new Vue({
       el: "#app",
       data: {
-        title: "双大括号表达式",
+        title: "<span>大家好，我叫赵廷会</span>",
         content:"这是一个秋天",
         seen:"true",
   
