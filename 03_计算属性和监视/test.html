@@ -35,10 +35,10 @@
 
    computed:{
      fullName2:{
-       geter(){
+       get (){
          return this.firstName+"-"+this.lastName
        },
-       seters(val){
+       set(val){
         const name=val.split("-")
         this.firstName=name[0]
         this.lastName=name[1]

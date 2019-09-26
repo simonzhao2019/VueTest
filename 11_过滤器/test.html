@@ -21,11 +21,20 @@
 -->
 <!--需求: 对当前时间进行指定格式显示-->
 <div id="test">
-  <h2>显示格式化的日期时间</h2>
+  <h2>{{money|currency}}</h2>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script>
+  Vue.filter("currency", function (value) {
+      return "$" + value;
+    });
+  new Vue({
+    el:"#test",
+    data:{
+      money:345
+    }
+  })
 
 </script>
 </body>
